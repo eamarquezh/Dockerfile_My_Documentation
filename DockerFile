@@ -1,0 +1,35 @@
+#Abrir docker
+sudo service docker start
+
+Detener Docker
+sudo systemctl stop docker
+sudo systemctl stop docker.socket
+
+# Para deshabilitar Docker y el socket Docker
+sudo systemctl disable docker
+sudo systemctl disable docker.socket
+
+
+
+#ver contenedores
+docker ps -a
+
+#eliminar contenedores
+docker rm <ID_DO_CONTAINER>
+
+
+#construir y ejecutar contenedor
+docker build -t file_load .
+docker run -d -p 8080:80 --name containe_1 --restart=always -v .:/var/www/html file_load
+
+
+#detener y eliminar
+docker stop <ID_DEL_CONTENEDOR>
+docker rm <ID_DEL_CONTENEDOR>
+
+
+#Forzar la Eliminación del Contenedor en Ejecución
+docker rm -f <ID_DEL_CONTENEDOR>
+
+
+
